@@ -1,21 +1,21 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { BrowserRouter, Route,Routes } from "react-router-dom";
 import Header from "./container/Header";
 import ProductListing from './container/ProductListing';
 import ProductDetail from './container/ProductDetail';
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header/>
+      <BrowserRouter>
+        <Header />
         <Routes>
-          <Route path="/" exact component={ProductListing} />
-          <Route path="/product/:productId" exact component={ProductDetail} />
-          <Route>404 Not Found !!</Route>
+          <Route path="/" exact element={<ProductListing/>} />
+          <Route path="/product/:productId" element={<ProductDetail/>} />
+          <Route>404 Not Found!</Route>
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
-
 export default App;
